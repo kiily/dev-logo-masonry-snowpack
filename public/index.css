@@ -1,14 +1,39 @@
-#img {
-  display: block;
-  margin: auto;
-  height: 128px;
-  width: 128px;
-  padding: 2rem;
+img {
+  max-width: 200px;
 }
 
-#canvas {
-  display: block;
-  margin: 2rem auto;
-  width: 540px;
-  height: 540px;
+.grid {
+  display: grid;
+  grid-row-gap: 0px;
+  grid-column-gap: 40px;
+  grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, var(--template-columns, 1fr))
+  );
+  grid-auto-rows: 5px;
+  width: 80%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.grid-item {
+  grid-row-end: var(--row-span, span 40);
+  padding-bottom: 40px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width:800px) {
+  .grid {
+      width: 90%;
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+  }
+  .grid-item {
+      grid-row-end: auto;
+  }
 }
